@@ -1,22 +1,19 @@
 'use client'
 
-// features/services/components/WorkingPrinciples.tsx
-// Animated principles list — right-column complement to the WontDo section.
-// Each principle has real teeth, not corporate platitudes.
 
-import { useReducedMotion, motion } from 'framer-motion'
+import { useReducedMotion, motion, Variants } from 'framer-motion'
 import type { WorkingPrinciple } from '@/features/services/data'
 
 interface WorkingPrinciplesProps {
   principles: WorkingPrinciple[]
 }
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.08 } },
 }
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, x: -10 },
   visible: { opacity: 1, x: 0, transition: { duration: 0.4, ease: 'easeOut' } },
 }
@@ -27,7 +24,7 @@ export function WorkingPrinciples({ principles }: WorkingPrinciplesProps) {
   return (
     <motion.ul
       className="space-y-7"
-      variants={shouldReduceMotion ? {} : containerVariants}
+      variants={shouldReduceMotion ? undefined : containerVariants}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: '-60px' }}
@@ -35,7 +32,7 @@ export function WorkingPrinciples({ principles }: WorkingPrinciplesProps) {
       {principles.map((principle) => (
         <motion.li
           key={principle.title}
-          variants={shouldReduceMotion ? {} : itemVariants}
+          variants={shouldReduceMotion ? undefined : itemVariants}
           className="grid grid-cols-[1px_1fr] gap-5"
         >
           {/* Left accent bar — appears on entry via parent stagger */}
