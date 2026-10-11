@@ -1,23 +1,19 @@
 'use client'
 
-// features/services/components/WontDoList.tsx
-// "What I won't do" section — an honest filter that signals seniority.
-// This is where most portfolios are completely silent. Saying it out loud
-// builds more trust than any list of credentials.
 
-import { useReducedMotion, motion } from 'framer-motion'
+import { useReducedMotion, motion, Variants } from 'framer-motion'
 import type { WontDo } from '@/features/services/data'
 
 interface WontDoListProps {
   items: WontDo[]
 }
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.08 } },
 }
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 12 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' } },
 }
@@ -28,7 +24,7 @@ export function WontDoList({ items }: WontDoListProps) {
   return (
     <motion.ul
       className="grid grid-cols-1 gap-4 sm:grid-cols-2"
-      variants={shouldReduceMotion ? {} : containerVariants}
+      variants={shouldReduceMotion ? undefined : containerVariants}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: '-60px' }}
@@ -36,7 +32,7 @@ export function WontDoList({ items }: WontDoListProps) {
       {items.map((item) => (
         <motion.li
           key={item.label}
-          variants={shouldReduceMotion ? {} : itemVariants}
+          variants={shouldReduceMotion ? undefined : itemVariants}
           className="rounded-xl border border-[#1F2937] bg-[#111111] p-5"
         >
           {/* Header row */}
