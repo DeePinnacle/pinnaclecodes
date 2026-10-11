@@ -1,10 +1,8 @@
 'use client'
 
-// features/services/components/ProcessTimeline.tsx
-// 4-phase horizontal timeline — numbered because order genuinely matters here.
-// Mobile: vertical stacked. Desktop: horizontal 4-col.
 
 import { useReducedMotion, motion } from 'framer-motion'
+import type { Variants } from 'framer-motion'
 import type { ProcessStep } from '@/features/services/data'
 
 interface ProcessTimelineProps {
@@ -16,7 +14,7 @@ const containerVariants = {
   visible: { transition: { staggerChildren: 0.1 } },
 }
 
-const stepVariants = {
+const stepVariants: Variants = {
   hidden: { opacity: 0, y: 16 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' } },
 }
