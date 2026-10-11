@@ -25,7 +25,7 @@ export function ProcessTimeline({ steps }: ProcessTimelineProps) {
   return (
     <motion.ol
       className="grid grid-cols-1 gap-0 md:grid-cols-4"
-      variants={shouldReduceMotion ? {} : containerVariants}
+      variants={shouldReduceMotion ? undefined : containerVariants}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: '-60px' }}
@@ -34,7 +34,7 @@ export function ProcessTimeline({ steps }: ProcessTimelineProps) {
       {steps.map((step, index) => (
         <motion.li
           key={step.phase}
-          variants={shouldReduceMotion ? {} : stepVariants}
+          variants={shouldReduceMotion ? undefined : stepVariants}
           className="group relative flex flex-col"
         >
           {/* Desktop connector line between steps */}
