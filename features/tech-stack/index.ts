@@ -1,0 +1,8 @@
+export { SkillsSection } from "./components/SkillsSection"
+export { SkillsGrid } from "./components/SkillsGrid"
+export { SkillCategoryBlock } from "./components/SkillCategoryBlock"
+export { SkillPill } from "./components/SkillPill"
+export { skillCategories } from "./data"
+export type { SkillCategory, Skill } from "./types"
+export type { ResolvedSkillCategory } from "./components/SkillCategoryBlock"
+export type { ResolvedSkill } from "./components/SkillPill"

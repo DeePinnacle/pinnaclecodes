@@ -1,0 +1,6 @@
+export { ServicesSection } from "./components/ServicesSection"
+export { ServicesBento } from "./components/ServicesBento"
+export { ServiceCard } from "./components/ServiceCard"
+export { ServicesCta } from "./components/ServicesCta"
+export { servicesData } from "./data"
+export type { ServicesData, ServiceItem, ServiceTag } from "./data"

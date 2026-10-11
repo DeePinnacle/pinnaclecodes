@@ -1,0 +1,5 @@
+export { HeroSection } from "./components/HeroSection"
+export { HeroContent } from "./components/HeroContent"
+export { HeroVisual } from "./components/HeroVisual"
+export { HeroBadge } from "./components/HeroBadge"
+export { HeroStats } from "./components/HeroStats"

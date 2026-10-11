@@ -1,0 +1,7 @@
+export { FeaturedProjectsSection } from "./components/FeaturedProjectsSection"
+export { FeaturedProjectsGrid } from "./components/FeaturedProjectsGrid"
+export { FeaturedProjectCard } from "./components/FeaturedProjectCard"
+export { ProjectsShowcase } from "./components/ProjectsShowcase"
+export { projects, featuredProjects, projectCategories } from "./data"
+export type { Project, ProjectCategory, ProjectView } from "./types"
+export type { ResolvedProject } from "./components/FeaturedProjectCard"

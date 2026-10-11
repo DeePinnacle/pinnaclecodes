@@ -1,0 +1,6 @@
+export { TestimonialCard } from "./components/TestimonialCard"
+export { TestimonialHeader } from "./components/TestimonialHeader"
+export { TestimonialsCarousel } from "./components/TestimonialsCarousel"
+export { TestimonialsSection } from "./components/TestimonialsSection"
+export { TestimonialForm } from "./components/TestimonialForm"
+export { TestimonialFormSection } from "./components/TestimonialFormSection"
