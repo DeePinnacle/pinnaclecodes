@@ -66,6 +66,7 @@ const navLinks = [
 
 export function Navbar() {
     const scrolled = useScrolled(50)
+    const [isSheetOpen, setIsSheetOpen] = useState(false)
 
     return (
         <motion.nav
@@ -83,12 +84,12 @@ export function Navbar() {
                 {/* left hand */}
                 <div className='md:hidden'>
                     <div className='flex flex-row items-center gap-1'>
-                        <Sheet>
+                        <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
                             <SheetTrigger asChild>
                                 <Button variant={"ghost"}><Menu className='w-10! h-10!' /></Button>
                             </SheetTrigger>
                             <SheetContent side="left">
-                                <NavLinks />
+                                <NavLinks onNavigate={() => setIsSheetOpen(false)} />
                                 {/* <SheetFooter>
                             </SheetFooter> */}
                             </SheetContent>
@@ -111,12 +112,18 @@ export function Navbar() {
         </motion.nav>
     )
 }
-const NavLinks = () => {
+
+interface NavLinksProps {
+    /** Called when a link is clicked — used to close the mobile sheet */
+    onNavigate?: () => void
+}
+
+const NavLinks = ({ onNavigate }: NavLinksProps) => {
     return (
         <ul className={cn(`h-14 md:flex md:flex-row md:items-center md:justify-between`)}>
             {navLinks.map((item) => (
                 <li key={item.id} className='text-md font-light my-5 px-2 py-2 hover:bg-primary-gold hover:transition hover:duration-500 hover:delay-100 hover:ease-in-out lg:my-2'>
-                    <Link href={`/${item.to}`} className='block'>{item.text}</Link>
+                    <Link href={`/${item.to}`} onClick={onNavigate} className='block'>{item.text}</Link>
                 </li>
             ))}
         </ul>
