@@ -1,7 +1,7 @@
 "use client"
 import { JSX } from "react";
 import Image from "next/image"
-import { motion, useReducedMotion } from "motion/react"
+import { motion, useReducedMotion, Variants } from "motion/react"
 
 interface TechBadge {
   label: string
@@ -18,15 +18,10 @@ const TECH_BADGES: TechBadge[] = [
   { label: "MongoDB",    position: "top-1/2 -right-10", delay: 1.2 },
 ]
 
-const floatVariants = {
+const floatVariants: Variants = {
   animate: (delay: number) => ({
     y: [0, -6, 0],
-    transition: {
-      duration: 3,
-      ease: "easeInOut",
-      repeat: Infinity,
-      delay,
-    },
+    transition: { duration: 3, ease: "easeInOut", repeat: Infinity, delay },
   }),
 }
 
@@ -69,7 +64,7 @@ export function HeroVisual(): JSX.Element {
         <motion.div
           key={badge.label}
           className={`absolute ${badge.position} z-10`}
-          variants={shouldReduceMotion ? {} : floatVariants}
+          variants={shouldReduceMotion ? undefined : floatVariants}
           animate={shouldReduceMotion ? undefined : "animate"}
           custom={badge.delay}
         >
